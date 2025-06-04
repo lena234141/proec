@@ -1,0 +1,72 @@
+.header {
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(222, 226, 229, 0.507); /* Полупрозрачный */
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 40px 150px;
+    width: 100%;
+    box-sizing: border-box; 
+    margin: 0;
+    list-style-type: none;
+}
+
+.header__link { 
+    display: block; 
+    padding: 10px; 
+    border-radius: 15%;
+    margin: 5px; 
+    color: #3a3c41; 
+    text-decoration: none; 
+}
+
+.header__list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-left: 0;
+    margin: 0 auto; 
+    list-style: none;
+}
+
+.header__item-link {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #9196a1;
+    text-decoration: none;
+}
+
+.header__item-link--active {
+    font-weight: 600;
+    color: #3a3c41;
+}
+
+.header__login {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: none;
+    background-color: initial;
+    margin: 0; 
+    margin-left: auto;
+}
+
+.header__login-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #95b8d1;
+    color: #fff; 
+}
+
+.header__login-text {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #95b8d1;
+}

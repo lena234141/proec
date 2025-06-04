@@ -1,0 +1,74 @@
+ /* Исходный стиль для кнопки */
+ .button {
+    background-color: #95B8D1;  
+    color: white;             
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+/* Эффект при наведении */
+.button:hover {
+    background-color: #95B8D1; 
+    transform: scale(1.05);     
+}
+
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 960px; 
+        padding: 0 15px; 
+    }
+
+    .course__list {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+    }
+
+    .header {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .footer {
+        padding: 20px; 
+        text-align: center; 
+    }
+}
+
+.course__item {
+    padding: 24px 24px 34px;
+    border-radius: 24px;
+    background-color: #ffffff;
+    box-shadow: 0 16px 72px 0 rgba(34, 39, 47, 0.05);
+    
+    /* Плавная анимация */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course__item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+
+header {
+    position: relative;
+    top: -100px;
+    color: white;
+    height: 80px;
+    width: 100%;
+    animation: slideDown 1s ease-in-out forwards; 
+}
+
+@keyframes slideDown {
+    0% {
+        top: -100px; 
+    }
+    100% {
+        top: 0; 
+    }
+}
+
+
+

@@ -1,0 +1,59 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+ 
+}
+footer {
+    box-sizing: content-box; 
+}
+html,
+body {
+    font-family: 'Gilroy', 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    color: #4a525a;
+
+    background-color: #fefefb;
+
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+
+    white-space: nowrap;
+
+    border: 0;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+
+    overflow: hidden;
+}
+ .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 20px 20px 0 20px;
+    }
+    footer {
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: 100%;
+    }
+  
+    
