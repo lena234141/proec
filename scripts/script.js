@@ -6,7 +6,7 @@
           margin: 0;
         }
     </style>
-    </head><body><pre style="width: 181ch; contain-intrinsic-height: 140.4em; content-visibility: visible">'use strict'
+    </head><body><pre style="width: 181ch; contain-intrinsic-height: 242.4em; content-visibility: visible">'use strict'
 
 document.addEventListener("DOMContentLoaded", () =&gt; {
 });
@@ -36,7 +36,6 @@ scrollTopBtn.addEventListener("click", () =&gt; {
         behavior: "smooth"
     });
 });
-
 /*
     *   Алгоритм появления кнопки "Наверх"
     *
@@ -102,8 +101,8 @@ scrollTopBtn.addEventListener("click", () =&gt; {
          });
      });
  }
-  
- document.addEventListener("DOMContentLoaded", () =&gt; {
+document.addEventListener("DOMContentLoaded", () =&gt; {
+    // --- Обновление имён преподавателей ---
     const cardsContainer = document.querySelector(".teachers");
 
     if (cardsContainer) {
@@ -121,6 +120,87 @@ scrollTopBtn.addEventListener("click", () =&gt; {
             }
         });
     }
-});
 
+    // --- Добавление карточек курсов, если их нет ---
+    const courseList = document.querySelector(".course__list");
+
+    const createCourseCard = (icon, title, description) =&gt; {
+        return `
+            &lt;li class="course__item"&gt;
+                &lt;img class="course__icon" src="${icon}" alt="Иконка курса" width="22" height="23"&gt;
+                &lt;h3 class="course__title"&gt;${title}&lt;/h3&gt;
+                &lt;p class="course__description"&gt;${description}&lt;/p&gt;
+            &lt;/li&gt;
+        `;
+    };
+
+    const coursesData = {
+        beginner: {
+            icon: "images/9b605c6786c413734ddc967a20da263e.jpg",
+            title: "Курс для Начинающих",
+            description: "Наш курс для начинающих поможет вам освоить базовые знания в математике"
+        },
+        advanced: {
+            icon: "images/девушка-сту-ента-изучая-на-шко-е-37772013.png",
+            title: "Продвинутый Курс",
+            description: "Продвинутый курс предназначен для тех, кто хочет углубить свои знания"
+        },
+        exams: {
+            icon: "images/exams4.jpg",
+            title: "Подготовка к Экзаменам",
+            description: "Специальный курс для подготовки к ЕГЭ и ОГЭ"
+        }
+    };
+
+    if (courseList &amp;&amp; courseList.children.length === 0) {
+        for (const key in coursesData) {
+            const course = coursesData[key];
+            const courseCard = createCourseCard(course.icon, course.title, course.description);
+            courseList.insertAdjacentHTML("beforeend", courseCard);
+        }
+    } else {
+        console.log("Курсы уже есть в HTML. JS ничего не добавляет.");
+    }
+});
+const headerMenu = document.querySelector('.header__nav');
+
+if (headerMenu) {
+    const headerList = headerMenu.querySelector('.header__list');
+
+    // Массив данных для меню
+    const menuData = [
+        {
+            link: "index.html",
+            title: "Главная",
+            active: true
+        },
+        {
+            link: "#course",
+            title: "Курсы"
+        },
+        {
+            link: "#teachers",
+            title: "Преподаватели"
+        },
+        {
+            link: "#contacts",
+            title: "Контакты"
+        }
+    ];
+
+    const createLink = (url, title, isActive = false) =&gt; {
+        return `
+            &lt;li class="header__item${isActive ? ' header__item--active' : ''}"&gt;
+                &lt;a class="header__link" href="${url}"&gt;${title}&lt;/a&gt;
+            &lt;/li&gt;
+        `;
+    };
+
+    headerList.innerHTML = "";
+
+    menuData.forEach(item =&gt; {
+        const linkHTML = createLink(item.link, item.title, item.active);
+        headerList.insertAdjacentHTML('beforeend', linkHTML);
+    });
+}
 </pre></body></html>
