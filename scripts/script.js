@@ -6,7 +6,7 @@
           margin: 0;
         }
     </style>
-    </head><body><pre style="width: 181ch; contain-intrinsic-height: 55.2em; content-visibility: visible">'use strict'
+    </head><body><pre style="width: 181ch; contain-intrinsic-height: 140.4em; content-visibility: visible">'use strict'
 
 document.addEventListener("DOMContentLoaded", () =&gt; {
 });
@@ -51,5 +51,76 @@ scrollTopBtn.addEventListener("click", () =&gt; {
     *   5. Конец.
     * Блок-схема: /images/block-schema.png
 */
+
+ /* 5. Появление форм */
+
+ const loginHeaderButton = document.querySelector('.header__login');
+ const dialogLayout = document.querySelector('.dialog');
+ 
+ if (loginHeaderButton &amp;&amp; dialogLayout) {
+     const popups = dialogLayout.querySelectorAll('.popup');
+     const closeDialogButtons = dialogLayout.querySelectorAll('.popup__close');
+ 
+     const selectPopup = document.getElementById('popup-select');
+     const loginPopup = document.getElementById('popup-login');
+     const registrationPopup = document.getElementById('popup-registration');
+ 
+     const switchToRegister = dialogLayout.querySelectorAll('[data-registration]');
+     const switchToLogin = dialogLayout.querySelectorAll('[data-login]');
+ 
+     function showPopup(popup) {
+         popups.forEach(p =&gt; p.style.display = 'none');
+         popup.style.display = 'block';
+         dialogLayout.style.display = 'flex';
+     }
+ 
+     loginHeaderButton.addEventListener('click', () =&gt; {
+         showPopup(selectPopup);
+     });
+ 
+     closeDialogButtons.forEach(button =&gt; {
+         button.addEventListener('click', () =&gt; {
+             dialogLayout.style.display = 'none';
+         });
+     });
+ 
+     window.addEventListener('click', (event) =&gt; {
+         if (event.target === dialogLayout) {
+             dialogLayout.style.display = 'none';
+         }
+     });
+ 
+     switchToRegister.forEach(button =&gt; {
+         button.addEventListener('click', () =&gt; {
+             showPopup(registrationPopup);
+         });
+     });
+ 
+     switchToLogin.forEach(button =&gt; {
+         button.addEventListener('click', () =&gt; {
+             showPopup(loginPopup);
+         });
+     });
+ }
+  
+ document.addEventListener("DOMContentLoaded", () =&gt; {
+    const cardsContainer = document.querySelector(".teachers");
+
+    if (cardsContainer) {
+        const dataTitleCards = [
+            "Ирина Васильевна",
+            "Марина Олеговна",
+            "Олег Алексеевич"
+        ];
+
+        const titleCards = cardsContainer.querySelectorAll(".teachers__name");
+
+        titleCards.forEach((item, index) =&gt; {
+            if (index &lt; dataTitleCards.length) {
+                item.textContent = dataTitleCards[index];
+            }
+        });
+    }
+});
 
 </pre></body></html>
